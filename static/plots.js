@@ -17,7 +17,9 @@ function init(){
   
   // Defining a new function for sorting all the values in asecending and descending order 
   // for each of the 6 elements - 1) Overall Happiness, 2)Health 3)Family 4)Freedom 5)Economy 6)Trust
-  function sortBy(inputData, columnName, direction) {
+  function sortBy(inputRaw, columnName, direction) {
+    var inputData = JSON.parse(JSON.stringify(inputRaw))// Tushaar Comments -> This line removes the last call reference to the JSON object
+    // This is a javascript issue, and the above code line is a workaround to fix it
     // column name is the column by which we want to sort data
     // direction can be ASC or DESC, any value that is not DESC is automally ASC
     var sortedData = [];//initializing our variable
@@ -78,7 +80,7 @@ function init(){
       sadness_list.push(data[i]['country']);
     }
     global_sadness_list = sadness_list;
-
+    
     //------------------------------------------------------------------------------------ 
     sortedByHealth = sortBy(data, 'life_expectancy', 'DESC'); 
     // console.log("Health Data");
@@ -87,12 +89,12 @@ function init(){
       top_health_list.push(sortedByHealth[i]['country']); // loading top 10 countries based on health rank
     }
     global_top_health_list = top_health_list;
-
+    
     for (i=sortedByHealth.length-1;i >= sortedByHealth.length-10; i--){   // loading bottom 10 countries based on health rank
       bottom_health_list.push(data[i]['country']);
     }
     global_bottom_health_list = bottom_health_list;
-
+    
     //------------------------------------------------------------------------------------ 
     sortedByFamily = sortBy(data, 'Family', 'DESC');
     // console.log("Family Data");
@@ -101,12 +103,12 @@ function init(){
       top_family_list.push(sortedByFamily[i]['country']); // loading top 10 countries based on family rank
     }
     global_top_family_list = top_family_list;
-
+    
     for (i=sortedByFamily.length-1;i >= sortedByFamily.length-10; i--){   // loading bottom 10 countries based on family rank
       bottom_family_list.push(data[i]['country']);
     }
     global_bottom_family_list = bottom_family_list;
-
+    
     //------------------------------------------------------------------------------------ 
     sortedByFreedom = sortBy(data, 'freedom', 'DESC');
     // console.log("Freedom Data");
@@ -120,7 +122,7 @@ function init(){
       bottom_freedom_list.push(data[i]['country']);
     }
     global_bottom_freedom_list = bottom_freedom_list;
-
+    
     //------------------------------------------------------------------------------------ 
     sortedByEconomy = sortBy(data, "GDP", 'DESC');
     // console.log("Economy Data");
@@ -134,7 +136,7 @@ function init(){
       bottom_economy_list.push(data[i]['country']);
     }  
     global_bottom_economy_list = bottom_economy_list;
-
+    
     //------------------------------------------------------------------------------------ 
     sortedByTrust = sortBy(data,"trust",'DESC');
     // console.log("Trust Data");
@@ -143,7 +145,7 @@ function init(){
       top_trust_list.push(sortedByTrust[i]['country']); // loading top 10 countries based on trust rank
     }
     global_top_trust_list = top_trust_list;
-
+    
     for (i=sortedByTrust.length-1;i >= sortedByTrust.length-10; i--){   // loading bottom 10 countries based on trust rank
       bottom_trust_list.push(data[i]['country']);
     }  
@@ -206,7 +208,7 @@ function init(){
     console.log("Global Bottom 10 Freedom List: \n" + global_bottom_freedom_list);
     console.log("Global Bottom 10 Economy List: \n" + global_bottom_economy_list);
     console.log("Global Bottom 10 Trust List: \n" + global_bottom_trust_list);
-        
+    
     switch (dataset) {
       
       case "dataset1":
