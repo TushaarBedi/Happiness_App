@@ -83,12 +83,12 @@ function handleSearchButtonClick() // function starts
   
   var filterRank = $RankInput.value.trim().toLowerCase();
   var filterCountry = $CountryInput.value.trim().toLowerCase();
-  var filterHappiness = $HappinessInput.value.trim().toLowerCase();
-  var filterHealth = $HealthInput.value.trim().toLowerCase();
-  var filterFamily = $FamilyInput.value.trim().toLowerCase();
-  var filterFreedom = $FreedomInput.value.trim().toLowerCase();
-  var filterEconomy = $EconomyInput.value.trim().toLowerCase();
-  var filterTrust = $TrustInput.value.trim().toLowerCase();
+  var filterHappiness = $HappinessInput.value;
+  var filterHealth = $HealthInput.value;
+  var filterFamily = $FamilyInput.value;
+  var filterFreedom = $FreedomInput.value;
+  var filterEconomy = $EconomyInput.value;
+  var filterTrust = $TrustInput.value;
   
   
   // Defining our first IF Condition - This condition will kick off if a user enters 'any value' in any 'one' of our 8 search fields
