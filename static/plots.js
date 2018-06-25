@@ -171,9 +171,12 @@ function init(){
       x: happiness_list,
       y: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
       type: "bar",
+      marker: {
+        color: 'rgb(29, 9, 9)'
+      }
     }];
     var layout = {
-      title: "Happiness Report 😀",
+      title: "Happiness Report",
       xaxis: { title: "Countries"},
       yaxis: { title: "Score (Normalized 1-10)"}
     };
@@ -221,7 +224,7 @@ function init(){
         }
       }];
       layout = {
-        title: "Top 10 Happiest Nations 😀",
+        title: "Top 10 Happiest Nations",
         xaxis: { title: "Countries"},
         yaxis: { title: "Happiness Score (Normalized 1-10)"}
       };
@@ -237,7 +240,7 @@ function init(){
         }
       }];
       layout = {
-        title: "Top 10 Saddest Nations 😥",
+        title: "Top 10 Saddest Nations",
         xaxis: { title: "Countries",tickangle: 0},
         yaxis: { title: "Sadness Score (Normalized 1-10)"}
       };
