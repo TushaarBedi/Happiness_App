@@ -20,6 +20,11 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+#raw table route
+@app.route('/table')
+def table():
+    return render_template('raw_table.html')
+
 #provisional welcome page
 # @app.route('/')
 # def welcome():
